@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<springProfile name="!test">
+    <configuration>
+        <include resource="org/springframework/boot/logging/logback/base.xml"/>
+        <property name="logfolder" value="/var/log/dcic-nssf-interface"/>
+
+        <appender name="SIFTER" class="ch.qos.logback.classic.sift.SiftingAppender">
+            <discriminator class="com.akanwkasa.dcic.nssf.helpers.LogDiscriminator"/>
+            <sift>
+                <appender name="FILE-${loggerName}" class="ch.qos.logback.core.rolling.RollingFileAppender">
+                    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+                        <fileNamePattern>${logfolder}/${loggerName}/${loggerName}-${HOSTNAME}-%d{yyyy-MM-dd_HH}.log
+                        </fileNamePattern>
+                    </rollingPolicy>
+                    <encoder>
+                        <pattern>
+                            [%date{yyyy-MM-dd HH:mm:ss.SSS}] [${HOSTNAME}] %logger{15}.%level %message%n%xException{10}
+                        </pattern>
+                    </encoder>
+                </appender>
+            </sift>
+        </appender>
+
+        <appender name="DEBUGGER" class="ch.qos.logback.core.rolling.RollingFileAppender">
+            <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+                <fileNamePattern>
+                    ${logfolder}/debug/debug-${HOSTNAME}-%d{yyyy-MM-dd_HH}.log
+                </fileNamePattern>
+            </rollingPolicy>
+            <encoder>
+                <pattern>
+                    [%date{yyyy-MM-dd HH:mm:ss.SSS}] %level [%logger{15}] %message%n%xException{10}
+                </pattern>
+            </encoder>
+        </appender>
+
+        <!--
+        Debug loggers
+        -->
+
+        <logger name="org.apache.cxf.services" level="INFO" additivity="false">
+            <appender-ref ref="DEBUGGER"/>
+        </logger>
+        <logger name="org.apache.xmlrpc.client" level="INFO" additivity="false">
+            <appender-ref ref="DEBUGGER"/>
+        </logger>
+        <logger name="org.apache.xmlrpc.server" level="INFO" additivity="false">
+            <appender-ref ref="DEBUGGER"/>
+        </logger>
+        <logger name="shutdown-hook" level="INFO" additivity="false">
+            <appender-ref ref="DEBUGGER"/>
+        </logger>
+
+        <!--
+        Loggers should reference the SIFTER appender to re-use its configuration
+        Loggers should have additivity="false" to prevent duplication in parent logger
+        -->
+
+        <logger name="application-log" level="INFO" additivity="false">
+            <appender-ref ref="SIFTER"/>
+        </logger>
+
+
+    </configuration>
+</springProfile>

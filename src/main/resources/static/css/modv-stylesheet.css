@@ -1,0 +1,76 @@
+/*global css only, page related can be found in individual pages to reduce load time */
+body {
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Montserrat', sans-serif;
+    /*font-family: 'Raleway', sans-serif;*/
+    /*font-family: 'Open Sans', sans-serif;*/
+    /*background: #1e7e34;*/
+}
+
+a {
+    text-decoration: none !important;
+    color: inherit !important;
+}
+
+/*li{list-style: none !important;}*/
+.col-md-2, .col-md-4, .col-sm-3, .col-sm-4, .col-sm-7, .col-sm-8, .col-sm-9, .col-md-12, .col-sm-10, .col-sm-11, .col-sm-5, .col-sm-6, .container-fluid, .row {
+    padding: 0px !important;
+    margin: 0px !important;
+}
+
+
+/*buttons*/
+.site-btn {
+    display: inline-block;
+    border: none;
+    font-size: 16px;
+    font-weight: 400;
+    color: #fff;
+    min-width: 110px;
+    padding: 14px 25px;
+    border-radius: 0px;
+    background: #515646;
+    cursor: pointer;
+    text-align: center;
+}
+
+.brief-history-button {
+    width: 50%;
+    text-align: left;
+    margin-bottom: 30px;
+    border: 2px solid #005428;
+    color: #005428;
+    border-radius: 0px;
+    padding: 10px;
+    font-size: 14px;
+}
+
+.brief-history-button i {
+    margin-right: 10px;
+    font-size: 17px;
+}
+
+.brief-history-button:hover {
+    border: 2px solid #005428;
+    color: white;
+    background-color: #005428;
+    border-radius: 0px;
+}
+
+.brief-history-content {
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+
+.side_padding {
+    width: 100vw;
+    padding: 0px 8% !important;
+    margin: 0px !important;
+}
+
+
+.department-heading h2 {
+    margin-bottom: 50px;
+}

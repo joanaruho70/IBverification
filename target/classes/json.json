@@ -1,0 +1,26 @@
+{
+  "code": 0,
+  "message": "Success",
+  "data": {
+    "applicationId": "141370142",
+    "applicationStatus": "CANCELLED",
+    "applicationType": "PERMIT",
+    "category": "Uganda Ordinary/Tourist Visa",
+    "creationDate": 1466507685309,
+    "expiryDate": null,
+    "subcategory": "Single Entry",
+    "paymentStatus": "",
+    "reasonForCancellation": "",
+    "birthDay": 750891600000,
+    "firstName": "Evelien Iris",
+    "lastName": "Kranenburg",
+    "email": "evelienk@live.nl",
+    "passportNumber": "NWHC48RD6",
+    "placeOfIssue": null,
+    "countryOfBirth": "",
+    "passportIssuingCountry": "Hengelo",
+    "nationality": "",
+    "paymentDetails": null,
+    "visaIssuingCountry": ""
+  }
+}

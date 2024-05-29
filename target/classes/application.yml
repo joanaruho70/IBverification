@@ -1,0 +1,42 @@
+
+server:
+  port: 1111
+  error:
+    whitelabel:
+      enabled: false
+    path: /error
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+  datasource:
+    driver-class-name: oracle.jdbc.OracleDriver
+    url: jdbc:oracle:thin:@coesysdb:1521:coesys
+    username: NSSFUSER
+    password: nssfuser#256
+#    username: peterk
+#    password: Evas@2527
+    hikari:
+      connection-timeout: 60000
+      maximum-pool-size: 5
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+  liquibase:
+    enabled: false
+logging:
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{36} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{36} - %msg%n"
+  #  level: error
+  file:
+    name: logs/application-debug.log
+nssf:
+  authenticationTokenUrl: http://192.168.193.140:5001/api/Authentication/GetAuthenticationtoken
+  getCompanyUrl: http://192.168.193.140:5001/api/company
+  getForeighnerUrl: http://192.168.193.140:5001/api/foreigners
+  getForeighnersUnderCompanyUrl: http://192.168.193.140:5001/api/foreigners/company/%s
+  getPaymentsUrl: http://192.168.193.140:5001/api/Payments/foriegners?id=%s&startPeriod=%s&endPeriod=%s
+
+
